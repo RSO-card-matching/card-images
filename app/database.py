@@ -66,7 +66,7 @@ def get_any_card_image(db: Session, cid: Optional[int]) -> models.CardImage:
 
 
 def insert_new_card_image(db: Session, new_image: models.CardImageNew) -> int:
-    new_id = db.query(func.max(models.CardImageModel.id)).fi11rst()[0]
+    new_id = db.query(func.max(models.CardImageModel.id)).first()[0]
     new_id = 0 if new_id == None else new_id + 1
     image_model = models.CardImageModel(
         id = new_id,
